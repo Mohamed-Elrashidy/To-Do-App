@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo/ui/theme.dart';
+import 'package:todo/ui/widgets/smalltex.dart';
+import '../widgets/icon_title.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({Key? key, required this.payLoad}) : super(key: key);
@@ -36,17 +38,49 @@ class _NotificationScreenState extends State<NotificationScreen> {
       body: SafeArea(
           child: Column(
         children: [
-          Text(
-            'Hello ,Mohamed',
-            style: TextStyle(
-                color: color, fontSize: 26, fontWeight: FontWeight.w900),
+          Column(
+            children: [
+              SizedBox(height: 10),
+              Text(
+                'Hello ,Mohamed',
+                style: TextStyle(
+                    color: color, fontSize: 26, fontWeight: FontWeight.w900),
+              ),
+              const SizedBox(height: 10),
+              Text(
+                'You have a new reminder',
+                style: TextStyle(
+                    color: color, fontSize: 18, fontWeight: FontWeight.w300),
+              ),
+            ],
           ),
-          SizedBox(height: 10),
-          Text(
-            'You have a new reminder',
-            style: TextStyle(
-                color: color, fontSize: 18, fontWeight: FontWeight.w300),
-          ),
+          //  const SizedBox(height: 10),
+          Expanded(
+            child: Container(
+              padding: const EdgeInsets.all(30),
+              margin: const EdgeInsets.all(30),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(16),
+                color: primaryClr,
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  iconTitleRow('Title', Icons.text_format),
+                  SizedBox(height: 20),
+                  smallText(_payload.toString().split('|')[0]),
+                  SizedBox(height: 20),
+                  iconTitleRow('Description', Icons.description),
+                  SizedBox(height: 20),
+                  smallText(_payload.toString().split('|')[1]),
+                  SizedBox(height: 20),
+                  iconTitleRow('Date', Icons.calendar_today),
+                  SizedBox(height: 20),
+                  smallText(_payload.toString().split('|')[2]),
+                ],
+              ),
+            ),
+          )
         ],
       )),
     );
