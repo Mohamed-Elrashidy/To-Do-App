@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:todo/ui/theme.dart';
-import 'package:todo/ui/widgets/smalltex.dart';
-import '../widgets/icon_title.dart';
+import 'package:todo/ui/widgets/textformat.dart';
+import '../widgets/icon_title_row.dart';
 
 class NotificationScreen extends StatefulWidget {
   const NotificationScreen({Key? key, required this.payLoad}) : super(key: key);
@@ -12,8 +12,13 @@ class NotificationScreen extends StatefulWidget {
 }
 
 class _NotificationScreenState extends State<NotificationScreen> {
+  se() {
+    print(Get.isDarkMode);
+  }
+
   @override
-  final color = Get.isDarkMode ? Colors.white : darkGreyClr;
+  //this logic not understanded
+  final color = Get.isDarkMode ? Colors.black : Colors.white;
   late String _payload;
   @override
   void initState() {

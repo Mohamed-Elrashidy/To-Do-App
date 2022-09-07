@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get_navigation/src/root/get_material_app.dart';
+import 'package:todo/ui/pages/home_page.dart';
 import './ui/pages/notification_screen.dart';
+import './ui/theme.dart';
+import 'services/theme_services.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,12 +15,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      theme: ThemeData(backgroundColor: Colors.teal, primaryColor: Colors.teal),
-      title: 'Flutter Demo',
-      debugShowCheckedModeBanner: false,
-      home: const NotificationScreen(
-        payLoad: 'AAAAA|DDDD|FFF',
-      ),
-    );
+        theme: Themes.light,
+        darkTheme: Themes.dark,
+        themeMode: ThemeServices().theme,
+        title: 'Flutter Demo',
+        debugShowCheckedModeBanner: false,
+        home: const HomePage());
   }
 }
