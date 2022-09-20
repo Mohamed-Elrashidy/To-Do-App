@@ -30,41 +30,40 @@ class InputField extends StatelessWidget {
               SizedBox(height: 10),
               Container(
                 height: 52,
+
+                width: SizeConfig.screenWidth,
+                padding: const EdgeInsets.only(top: 8, left: 10),
+                // margin: EdgeInsets.only(left: 10),
+                decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16),
+                    border: Border.all(color: Colors.grey)),
                 child: Row(
                   children: [
                     Expanded(
-                      child: Container(
-                          height: 52,
-                          width: SizeConfig.screenWidth,
-                          padding: const EdgeInsets.only(top: 8, left: 10),
-                          // margin: EdgeInsets.only(left: 10),
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(16),
-                              border: Border.all(color: Colors.grey)),
-                          child: TextFormField(
-                            readOnly: widget != null ? true : false,
-                            cursorColor: Get.isDarkMode
-                                ? Colors.grey[100]
-                                : Colors.grey[700],
-                            controller: controller,
-                            style: subTitleStyle(),
-                            autofocus: false,
-                            decoration: InputDecoration(
-                                enabledBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 0,
-                                    color: context.theme.backgroundColor,
-                                  ),
-                                ),
-                                focusedBorder: UnderlineInputBorder(
-                                  borderSide: BorderSide(
-                                    width: 0,
-                                    color: context.theme.backgroundColor,
-                                  ),
-                                ),
-                                hintText: hint,
-                                hintStyle: subTitleStyle()),
-                          )),
+                      child: TextFormField(
+                        readOnly: widget != null ? true : false,
+                        cursorColor: Get.isDarkMode
+                            ? Colors.grey[100]
+                            : Colors.grey[700],
+                        controller: controller,
+                        style: subTitleStyle(),
+                        autofocus: false,
+                        decoration: InputDecoration(
+                            enabledBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 0,
+                                color: context.theme.backgroundColor,
+                              ),
+                            ),
+                            focusedBorder: UnderlineInputBorder(
+                              borderSide: BorderSide(
+                                width: 0,
+                                color: context.theme.backgroundColor,
+                              ),
+                            ),
+                            hintText: hint,
+                            hintStyle: subTitleStyle()),
+                      ),
                     ),
                     widget ?? Container()
                   ],

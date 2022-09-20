@@ -5,11 +5,11 @@ import 'package:todo/ui/widgets/textformat.dart';
 class MyButton extends StatelessWidget {
   const MyButton({required this.label, required this.onTap});
   final String label;
-  final Function onTap;
+  final onTap;
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: () => onTap,
+      onTap: onTap,
       child: Center(
         child: Container(
             width: 100,
